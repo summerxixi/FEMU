@@ -23,7 +23,7 @@
 #include "cpu.h"
 
 #ifndef CONFIG_USER_ONLY
-static inline AddressSpaceDispatch *flatview_to_dispatch(FlatView *fv)
+static inline AddressSpaceDispatch * flatview_to_dispatch(FlatView *fv)
 {
     return fv->dispatch;
 }

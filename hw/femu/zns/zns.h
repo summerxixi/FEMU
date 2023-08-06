@@ -44,11 +44,13 @@ struct nand_cmd {
     int cmd;
     uint64_t stime;
 };
-
+// 这些结构体的定义用于描述一个闪存层次结构，其中闪存通道（struct zns_ch）
+// 包含闪存控制器（struct zns_fc），而闪存控制器又包含闪存块（struct zns_blk）。
 struct zns_blk {
     uint64_t next_blk_avail_time;
 };
 
+// 
 struct zns_fc {
     struct zns_blk *blk;
     uint64_t next_fc_avail_time;

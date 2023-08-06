@@ -1062,12 +1062,12 @@ typedef struct NvmeZone NvmeZone;
 typedef struct NvmeNamespace {
     struct FemuCtrl *ctrl;
     NvmeIdNs        id_ns;
-    NvmeRangeType   lba_range[64];
-    unsigned long   *util;
-    unsigned long   *uncorrectable;
-    uint32_t        id;
+    NvmeRangeType   lba_range[64];//用于存储命名空间的 LBA 范围，是一个长度为 64 的数组。
+    unsigned long   *util;//指向无符号长整型（unsigned long）的指针，用于存储命名空间的利用率信息。
+    unsigned long   *uncorrectable;//用于存储不可纠正错误的数量
+    uint32_t        id;//命名空间的标识符（ID）
     uint64_t        size; /* Coperd: for ZNS, FIXME */
-    uint64_t        ns_blks;
+    uint64_t        ns_blks; 
     uint64_t        start_block;
     uint64_t        meta_start_offset;
     uint64_t        tbl_dsk_start_offset;

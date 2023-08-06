@@ -63,6 +63,7 @@ static inline void dma_barrier(AddressSpace *as, DMADirection dir)
      * use lighter barriers based on the direction of the
      * transfer, the DMA context, etc...
      */
+    // 确保 DMA 读写操作之前的内存访问符合预期的顺序
     smp_mb();
 }
 
@@ -121,9 +122,10 @@ static inline MemTxResult dma_memory_write_relaxed(AddressSpace *as,
  * @dir: indicates the transfer direction
  * @attrs: memory transaction attributes
  */
-static inline MemTxResult dma_memory_rw(AddressSpace *as, dma_addr_t addr,
-                                        void *buf, dma_addr_t len,
-                                        DMADirection dir, MemTxAttrs attrs)
+
+// as 是指向地址空间的指针，addr 是要读写的内存地址，buf 是用于存储数据的缓冲区指针，len 是要读写的数据长度，dir 是 DMA 的传输方向，attrs 是内存事务的属性。
+static inline MemTxResult dma_memory_rw(AddressSpace *as, dma_addr_t addr,void *buf, dma_addr_t len,
+ DMADirection dir, MemTxAttrs attrs)
 {
     dma_barrier(as, dir);
 

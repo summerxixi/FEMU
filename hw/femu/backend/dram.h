@@ -5,8 +5,8 @@
 
 /* DRAM backend SSD address space */
 typedef struct SsdDramBackend {
-    void    *logical_space;
-    int64_t size; /* in bytes */
+    void    *logical_space;  //指向逻辑空间的指针
+    int64_t size; /* in bytes *///逻辑空间的大小
     int     femu_mode;
 } SsdDramBackend;
 

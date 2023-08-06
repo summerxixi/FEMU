@@ -49,7 +49,7 @@ void qemu_sglist_add(QEMUSGList *qsg, dma_addr_t base, dma_addr_t len)
     qsg->size += len;
     ++qsg->nsg;
 }
-
+// 销毁 QEMUSGList 结构体对象，释放相关的资源，并将对象的内存清零，以便后续的处理。
 void qemu_sglist_destroy(QEMUSGList *qsg)
 {
     object_unref(OBJECT(qsg->dev));
